@@ -21,15 +21,14 @@ batch_size = 600
 
 # Import MNIST data
 (x_train, y_train), (x_test, y_test) = tf.keras.datasets.mnist.load_data()
-
 train_dataset = (
     tf.data.Dataset.from_tensor_slices((tf.reshape(x_train, [-1, 784]), y_train))
     .batch(batch_size)
     .shuffle(1000)
 )
-for e in train_dataset:
-    print("shape:",e.shape)
-    print("type:",e.dtype)
+for x,y in train_dataset:
+    print("x shape:",x.shape,"x type:",x.dtype)
+    print("y shape:",y.shape,"y type:",y.dtype)
 train_dataset = (
     train_dataset.map(lambda x, y:
                       (tf.divide(tf.cast(x, tf.float32), 255.0),
