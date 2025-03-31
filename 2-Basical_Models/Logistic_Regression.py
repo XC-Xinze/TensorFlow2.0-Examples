@@ -27,7 +27,9 @@ train_dataset = (
     .batch(batch_size)
     .shuffle(1000)
 )
-
+for e in train_dataset:
+    print("shape:",e.shape)
+    print("type:",e.dtype)
 train_dataset = (
     train_dataset.map(lambda x, y:
                       (tf.divide(tf.cast(x, tf.float32), 255.0),
