@@ -110,6 +110,9 @@ def load_image_test(image_file):
 
 train_dataset = tf.data.Dataset.list_files(PATH+'train/*.jpg')
 train_dataset = train_dataset.shuffle(BUFFER_SIZE)
+for e in train_dataset:
+    print("Type:",e.dtype)
+    print("Shape:",e.shape)
 train_dataset = train_dataset.map(load_image_train,
                                   num_parallel_calls=tf.data.experimental.AUTOTUNE)
 train_dataset = train_dataset.batch(1)
