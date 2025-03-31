@@ -21,8 +21,7 @@ from IPython.display import clear_output
 This notebook demonstrates image to image translation using conditional GAN's,
 as described in Image-to-Image Translation with Conditional Adversarial Networks.
 """
-
-_URL = 'https://people.eecs.berkeley.edu/~tinghuiz/projects/pix2pix/datasets/facades.tar.gz'
+_URL = 'https://efrosgans.eecs.berkeley.edu/pix2pix/datasets/facades.tar.gz'
 
 path_to_zip = tf.keras.utils.get_file('facades.tar.gz', origin=_URL, extract=True)
 
